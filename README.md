@@ -143,33 +143,19 @@ dotnet test tests/EventLiteTests/EventLiteTests.csproj --logger "console;verbosi
 └─────────────────┘
 ```
 
-### Почему так?
-
-| Преимущество | Описание |
-|--------------|----------|
-| **Разделение ответственности** | Каждый слой отвечает за свою задачу |
-| **Тестируемость** | Сервисный слой легко покрыть unit-тестами |
-| **Поддерживаемость** | Изменения в одном слое не ломают другие |
-| **Гибкость** | Можно заменить БД или UI без переписывания логики |
-
----
-
 ## 📸 Скриншоты
 
 ### Главная страница
-*(Добавь скриншот главной страницы)*
+<img width="1919" height="957" alt="image" src="https://github.com/user-attachments/assets/726c0df8-f2a8-4ad4-a85f-06cc7fd49362" />
+
 
 ### Создание мероприятия
-*(Добавь скриншот формы создания)*
+<img width="1919" height="959" alt="image" src="https://github.com/user-attachments/assets/5f57d136-3ace-4407-b494-1ecdf5d59a99" />
+
 
 ### Список мероприятий
-*(Добавь скриншот списка)*
+<img width="1647" height="261" alt="image" src="https://github.com/user-attachments/assets/906f2672-256e-4917-b63d-181e886ced3e" />
 
-> 💡 **Как добавить скриншоты:**
-> 1. Сделай скриншоты работающего приложения
-> 2. Создай папку `screenshots/` в корне
-> 3. Положи туда изображения
-> 4. Обнови пути выше: `![Описание](screenshots/filename.png)`
 
 ---
 
@@ -204,20 +190,11 @@ dotnet test tests/EventLiteTests/EventLiteTests.csproj --logger "console;verbosi
 
 ## 👨‍ Автор
 
-**[Твоё Имя]**
+**[Unworthy231]**
 
-- 📧 Email: [твой@email.com]
-- 💼 LinkedIn: [ссылка]
-- 🐙 GitHub: [ссылка на профиль]
-- 📍 Локация: [Город, Страна]
-
----
-
-## 📬 Контакты
-
-Открыт к предложениям на позицию **Junior .NET Developer**!
-
-Если у вас есть вакансия или вопросы по проекту — свяжитесь со мной через GitHub Issues или по email.
+- 📧 Email: [erepare@mail.ru]
+- 🐙 GitHub: [https://github.com/CHABOKSARIK]
+- 📍 Локация: [Ангарск, Россия]
 
 ---
 
