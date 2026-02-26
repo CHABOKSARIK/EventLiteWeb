@@ -1,0 +1,26 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+
+# IDE
+.vs/
+.idea/
+*.suo
+*.user
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Docker
+**/.dockerignore
+
+# Logs
+*.log
+logs/
+
+# User secrets
+appsettings.Development.json

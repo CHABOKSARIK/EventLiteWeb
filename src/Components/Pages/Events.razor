@@ -1,0 +1,87 @@
+﻿@page "/events"
+@inject EventLiteWeb.Services.IEventService EventService
+@using EventLiteWeb.Models
+@rendermode InteractiveServer
+
+<h3>Мероприятия</h3>
+
+<!-- Форма добавления -->
+<div class="card">
+    <div class="card-header">
+        <h5>Добавить мероприятие</h5>
+    </div>
+    <div class="card-body">
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger">@errorMessage</div>
+        }
+
+        <input @bind="newEvent.Name" class="form-control" placeholder="Название" />
+        <input @bind="newEvent.Date" type="date" class="form-control" />
+        <input @bind="newEvent.Location" class="form-control" placeholder="Место" />
+        
+        <button @onclick="AddEvent" class="btn btn-primary">Добавить</button>
+    </div>
+</div>
+
+<!-- Список мероприятий -->
+<div class="mt-4">
+    <h4>Список мероприятий</h4>
+    
+    @if (events.Any())
+    {
+        @foreach (var ev in events)
+        {
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5>@ev.Name</h5>
+                    <p>Дата: @ev.Date.ToString("dd.MM.yyyy") | Место: @ev.Location</p>
+                    <button @onclick="() => DeleteEvent(ev.Id)" class="btn btn-danger btn-sm">
+                        Удалить
+                    </button>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info">Нет мероприятий. Добавьте первое!</div>
+    }
+</div>
+
+@code {
+    private List<Event> events = new();
+    private Event newEvent = new();
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadEventsAsync();
+    }
+
+    private async Task LoadEventsAsync()
+    {
+        events = await EventService.GetAllEventsAsync();
+    }
+
+    private async Task AddEvent()
+    {
+        errorMessage = null;
+        try
+        {
+            await EventService.CreateEventAsync(newEvent);
+            newEvent = new(); 
+            await LoadEventsAsync();
+        }
+        catch (ArgumentException ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private async Task DeleteEvent(int id)
+    {
+        await EventService.DeleteEventAsync(id);
+        await LoadEventsAsync();
+    }
+}
